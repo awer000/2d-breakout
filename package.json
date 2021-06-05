@@ -1,0 +1,8 @@
+{
+  "name": "2d-breakout",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/awer000/2d-breakout.git",
+  "author": "awer000 <awer000@naver.com>",
+  "license": "MIT"
+}
