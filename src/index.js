@@ -2,8 +2,8 @@ var canvas = document.getElementById('my-canvas');
 var ctx = canvas.getContext('2d');
 var x = canvas.width / 2;
 var y = canvas.height - 30;
-var dx = 1;
-var dy = -1;
+var dx = 2;
+var dy = -2;
 var ballRadius = 10;
 // paddle 정보
 var paddleHeight = 10;
@@ -32,15 +32,14 @@ function draw() {
     if (y + dy < ballRadius) {
         dy = -dy;
     }
-    else if (y + dy > canvas.height - ballRadius) {
-        // 공은 이미 바닥에 있는 상황, 그러므로 가로만 확인해서 공이 패들 안쪽에 있는지 확인하면 됨
+    else if (y + dy > canvas.height - ballRadius - paddleHeight) {
         if (paddleX < x && x < paddleX + paddleWidth) {
             dy = -dy;
         }
-        else {
-            alert('GAME OVER');
-            document.location.reload();
-        }
+    }
+    else if (y + dy > canvas.height - ballRadius) {
+        alert('GAME OVER');
+        document.location.reload();
     }
     if (x + dx < ballRadius || x + dx > canvas.width - ballRadius) {
         dx = -dx;
